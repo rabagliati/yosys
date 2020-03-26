@@ -869,6 +869,390 @@ endmodule
 
 //  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
 //-
+//-     $_DFFE_NN0N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity reset and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 0
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NN0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or negedge R) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_NN0P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity reset and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 0
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NN0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or negedge R) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_NN1N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity set and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 1
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NN1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or negedge R) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_NN1P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity set and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 1
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NN1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or negedge R) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_NP0N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity reset and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 0
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NP0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or posedge R) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_NP0P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity reset and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 0
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NP0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or posedge R) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_NP1N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity set and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 1
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NP1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or posedge R) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_NP1P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity set and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 1
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_NP1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C or posedge R) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PN0N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity reset and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 0
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PN0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or negedge R) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PN0P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity reset and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 0
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PN0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or negedge R) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PN1N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity set and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 1
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PN1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or negedge R) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PN1P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity set and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 0 - | 1
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PN1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or negedge R) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PP0N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity reset and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 0
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PP0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or posedge R) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PP0P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity reset and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 0
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PP0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or posedge R) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PP1N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity set and negative
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 1
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PP1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or posedge R) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFE_PP1P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity set and positive
+//- polarity clock enable.
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - - 1 - | 1
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFE_PP1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C or posedge R) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
 //-     $_DFFSR_NNN_ (C, S, R, D, Q)
 //-
 //- A negative edge D-type flip-flop with negative polarity set and reset.
@@ -1075,6 +1459,574 @@ always @(posedge C, posedge S, posedge R) begin
 	else if (S == 1)
 		Q <= 1;
 	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_NN0_ (D, C, R, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity synchronous reset.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - \ 0 | 0
+//-                 d \ - | d
+//-                 - - - | q
+//-
+module \$_DFFS_NN0_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(negedge C) begin
+	if (R == 0)
+		Q <= 0;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_NN1_ (D, C, R, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity synchronous set.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - \ 0 | 1
+//-                 d \ - | d
+//-                 - - - | q
+//-
+module \$_DFFS_NN1_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(negedge C) begin
+	if (R == 0)
+		Q <= 1;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_NP0_ (D, C, R, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity synchronous reset.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - \ 1 | 0
+//-                 d \ - | d
+//-                 - - - | q
+//-
+module \$_DFFS_NP0_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(negedge C) begin
+	if (R == 1)
+		Q <= 0;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_NP1_ (D, C, R, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity synchronous set.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - \ 1 | 1
+//-                 d \ - | d
+//-                 - - - | q
+//-
+module \$_DFFS_NP1_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(negedge C) begin
+	if (R == 1)
+		Q <= 1;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_PN0_ (D, C, R, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity synchronous reset.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - / 0 | 0
+//-                 d / - | d
+//-                 - - - | q
+//-
+module \$_DFFS_PN0_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(posedge C) begin
+	if (R == 0)
+		Q <= 0;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_PN1_ (D, C, R, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity synchronous set.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - / 0 | 1
+//-                 d / - | d
+//-                 - - - | q
+//-
+module \$_DFFS_PN1_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(posedge C) begin
+	if (R == 0)
+		Q <= 1;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_PP0_ (D, C, R, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity synchronous reset.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - / 1 | 0
+//-                 d / - | d
+//-                 - - - | q
+//-
+module \$_DFFS_PP0_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(posedge C) begin
+	if (R == 1)
+		Q <= 0;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFS_PP1_ (D, C, R, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity synchronous set.
+//-
+//- Truth table:    D C R | Q
+//-                -------+---
+//-                 - / 1 | 1
+//-                 d / - | d
+//-                 - - - | q
+//-
+module \$_DFFS_PP1_ (D, C, R, Q);
+input D, C, R;
+output reg Q;
+always @(posedge C) begin
+	if (R == 1)
+		Q <= 1;
+	else
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NN0N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity synchronous reset and negative
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 0 - | 0
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NN0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NN0P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity synchronous reset and positive
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 0 - | 0
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NN0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NN1N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity synchronous set and negative
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 0 - | 1
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NN1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NN1P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with negative polarity synchronous set and positive
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 0 - | 1
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NN1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NP0N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity synchronous reset and negative
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 1 - | 0
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NP0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NP0P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity synchronous reset and positive
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 1 - | 0
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NP0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NP1N_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity synchronous set and negative
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 1 - | 1
+//-                 d \ - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NP1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_NP1P_ (D, C, R, E, Q)
+//-
+//- A negative edge D-type flip-flop with positive polarity synchronous set and positive
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - \ 1 - | 1
+//-                 d \ - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_NP1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(negedge C) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PN0N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity synchronous reset and negative
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 0 - | 0
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PN0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PN0P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity synchronous reset and positive
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 0 - | 0
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PN0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 0)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PN1N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity synchronous set and negative
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 0 - | 1
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PN1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PN1P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with negative polarity synchronous set and positive
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 0 - | 1
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PN1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 0)
+		Q <= 1;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PP0N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity synchronous reset and negative
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 1 - | 0
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PP0N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PP0P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity synchronous reset and positive
+//- polarity clock enable (with reset having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 1 - | 0
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PP0P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 1)
+		Q <= 0;
+	else if (E == 1)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PP1N_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity synchronous set and negative
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 1 - | 1
+//-                 d / - 0 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PP1N_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 0)
+		Q <= D;
+end
+endmodule
+
+//  |---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|---v---|
+//-
+//-     $_DFFSE_PP1P_ (D, C, R, E, Q)
+//-
+//- A positive edge D-type flip-flop with positive polarity synchronous set and positive
+//- polarity clock enable (with set having priority).
+//-
+//- Truth table:    D C R E | Q
+//-                ---------+---
+//-                 - / 1 - | 1
+//-                 d / - 1 | d
+//-                 - - - - | q
+//-
+module \$_DFFSE_PP1P_ (D, C, R, E, Q);
+input D, C, R, E;
+output reg Q;
+always @(posedge C) begin
+	if (R == 1)
+		Q <= 1;
+	else if (E == 1)
 		Q <= D;
 end
 endmodule
