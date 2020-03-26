@@ -1773,7 +1773,7 @@ wire pos_rst = RST == RST_POLARITY;
 
 always @(posedge pos_clk) begin
 	if (pos_rst)
-		Q <= ARST_VALUE;
+		Q <= RST_VALUE;
 	else
 		Q <= D;
 end
@@ -1823,7 +1823,7 @@ wire pos_rst = RST == RST_POLARITY;
 
 always @(posedge pos_clk) begin
 	if (pos_rst)
-		Q <= ARST_VALUE;
+		Q <= RST_VALUE;
 	else if (EN == EN_POLARITY)
 		Q <= D;
 end
