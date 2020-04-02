@@ -26,7 +26,7 @@ void bitwise_unary_op(AbstractCellEdgesDatabase *db, RTLIL::Cell *cell)
 {
 	IdString A = ID::A, Y = ID::Y;
 
-	bool is_signed = cell->getParam(ID(A_SIGNED)).as_bool();
+	bool is_signed = cell->getParam(ID::A_SIGNED).as_bool();
 	int a_width = GetSize(cell->getPort(A));
 	int y_width = GetSize(cell->getPort(Y));
 
@@ -43,7 +43,7 @@ void bitwise_binary_op(AbstractCellEdgesDatabase *db, RTLIL::Cell *cell)
 {
 	IdString A = ID::A, B = ID::B, Y = ID::Y;
 
-	bool is_signed = cell->getParam(ID(A_SIGNED)).as_bool();
+	bool is_signed = cell->getParam(ID::A_SIGNED).as_bool();
 	int a_width = GetSize(cell->getPort(A));
 	int b_width = GetSize(cell->getPort(B));
 	int y_width = GetSize(cell->getPort(Y));
@@ -73,7 +73,7 @@ void arith_neg_op(AbstractCellEdgesDatabase *db, RTLIL::Cell *cell)
 {
 	IdString A = ID::A, Y = ID::Y;
 
-	bool is_signed = cell->getParam(ID(A_SIGNED)).as_bool();
+	bool is_signed = cell->getParam(ID::A_SIGNED).as_bool();
 	int a_width = GetSize(cell->getPort(A));
 	int y_width = GetSize(cell->getPort(Y));
 
@@ -89,7 +89,7 @@ void arith_binary_op(AbstractCellEdgesDatabase *db, RTLIL::Cell *cell)
 {
 	IdString A = ID::A, B = ID::B, Y = ID::Y;
 
-	bool is_signed = cell->getParam(ID(A_SIGNED)).as_bool();
+	bool is_signed = cell->getParam(ID::A_SIGNED).as_bool();
 	int a_width = GetSize(cell->getPort(A));
 	int b_width = GetSize(cell->getPort(B));
 	int y_width = GetSize(cell->getPort(Y));
@@ -138,7 +138,7 @@ void compare_op(AbstractCellEdgesDatabase *db, RTLIL::Cell *cell)
 
 void mux_op(AbstractCellEdgesDatabase *db, RTLIL::Cell *cell)
 {
-	IdString A = ID::A, B = ID::B, S = ID(S), Y = ID::Y;
+	IdString A = ID::A, B = ID::B, S = ID::S, Y = ID::Y;
 
 	int a_width = GetSize(cell->getPort(A));
 	int b_width = GetSize(cell->getPort(B));
